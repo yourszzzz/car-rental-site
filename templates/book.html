@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Book a Car</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h2>Book a Car</h2>
-    <form method="POST">
-        Your Name: <input type="text" name="name" required><br>
-        Choose Car:
+    <form method="POST" class="form-container">
+        <label>Your Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Select Car:</label>
         <select name="car_id">
             {% for car in cars %}
                 <option value="{{ car[0] }}">{{ car[1] }}</option>
             {% endfor %}
-        </select><br>
-        Date: <input type="date" name="date" required><br>
-        <input type="submit" value="Book Now">
+        </select>
+
+        <label>From Date:</label>
+        <input type="date" name="start_date" required>
+
+        <label>To Date:</label>
+        <input type="date" name="end_date" required>
+
+        <button type="submit">✅ Book Now</button>
     </form>
-    <a href="/">Back to Home</a>
+    <a class="btn" href="/">← Back to Home</a>
 </body>
 </html>

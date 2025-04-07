@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Booking Confirmed</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Booking Successful</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Thank you {{ name }}!</h2>
-    <p>Your booking is confirmed. We’ll contact you shortly.</p>
-    <img src="{{ url_for('static', filename='images/confirmed.jpg') }}" alt="Confirmed" style="width: 300px;">
-    <br><br>
-    <a href="/">Back to Home</a>
+    <h1>✅ Booking Confirmed!</h1>
+    <p>{{ message }}</p>
+    <a href="/cars">Back to Cars</a>
 </body>
 </html>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Car Rental Home</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Car Rental - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to QuickRent!</h1>
-    <img src="{{ url_for('static', filename='images/home-banner.jpg') }}" alt="Banner" style="width: 80%;">
-    <p>Book a car easily with great prices.</p>
-    <a href="/cars">View Cars</a> | <a href="/book">Book a Car</a>
+    <h1>Welcome to Car Rental</h1>
+    <img src="{{ url_for('static', filename='home-banner.jpg') }}" alt="Banner" class="banner">
+    <div class="nav-links">
+        <a href="/cars">🚗 View Available Cars</a>
+        <a href="/book">📅 Book a Car</a>
+        <a href="/bookings">📖 View Bookings</a>
+    </div>
 </body>
 </html>

@@ -1,42 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Available Cars</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        .car-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        .car-card {
-            width: 250px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            background-color: #fff;
-        }
-        .car-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
-    </style>
 </head>
 <body>
-    <h1>Available Cars</h1>
-    <div class="car-container">
+    <h2>Available Cars</h2>
+    <div class="car-list">
         {% for car in cars %}
         <div class="car-card">
-            <img src="{{ url_for('static', filename='images/' + car[1]|lower + '.jpg') }}" alt="{{ car[1] }}">
+            <img src="{{ url_for('static', filename=car[4]) }}" alt="{{ car[1] }}">
             <h3>{{ car[1] }}</h3>
-            <a href="/book?car_id={{ car[0] }}">Book Now</a>
+            <p>{{ car[2] }}</p>
+            <p>₹{{ car[3] }} per day</p>
         </div>
+        {% else %}
+        <p>No cars available right now.</p>
         {% endfor %}
     </div>
+    <a class="btn" href="/">← Back to Home</a>
 </body>
 </html>
