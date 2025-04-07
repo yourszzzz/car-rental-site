@@ -2,15 +2,41 @@
 <html>
 <head>
     <title>Available Cars</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .car-card {
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        .car-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Available Cars</h2>
-    <ul>
+    <h1>Available Cars</h1>
+    <div class="car-container">
         {% for car in cars %}
-            <li>{{ car[1] }} - {{ car[2] }} - ₹{{ car[3] }} per day</li>
+        <div class="car-card">
+            <img src="{{ url_for('static', filename='images/' + car[1]|lower + '.jpg') }}" alt="{{ car[1] }}">
+            <h3>{{ car[1] }}</h3>
+            <a href="/book?car_id={{ car[0] }}">Book Now</a>
+        </div>
         {% endfor %}
-    </ul>
-    <a href="/">Back to Home</a>
+    </div>
 </body>
 </html>

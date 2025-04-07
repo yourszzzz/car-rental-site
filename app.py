@@ -31,7 +31,8 @@ def book():
         cur.execute("INSERT INTO bookings (name, car_id, date) VALUES (?, ?, ?)", (name, car_id, date))
         conn.commit()
         conn.close()
-        return redirect('/')
+        
+        return render_template('success.html', name=name)
 
     conn = sqlite3.connect('cars.db')
     cur = conn.cursor()
