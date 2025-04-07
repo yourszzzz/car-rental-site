@@ -10,7 +10,7 @@
     <div class="car-list">
         {% for car in cars %}
         <div class="car-card">
-            <img src="{{ url_for('static', filename=car[4]) }}" alt="{{ car[1] }}">
+            <img src="{{ url_for('static', filename='images/' + car[4]) }}" alt="{{ car[1] }}">
             <h3>{{ car[1] }}</h3>
             <p>{{ car[2] }}</p>
             <p>₹{{ car[3] }} per day</p>
