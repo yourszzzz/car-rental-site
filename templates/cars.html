@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Cars</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Available Cars</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car[1] }} - {{ car[2] }} - ₹{{ car[3] }} per day</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

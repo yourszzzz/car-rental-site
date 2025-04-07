@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book a Car</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Book a Car</h2>
+    <form method="POST">
+        Your Name: <input type="text" name="name" required><br>
+        Choose Car:
+        <select name="car_id">
+            {% for car in cars %}
+                <option value="{{ car[0] }}">{{ car[1] }}</option>
+            {% endfor %}
+        </select><br>
+        Date: <input type="date" name="date" required><br>
+        <input type="submit" value="Book Now">
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
